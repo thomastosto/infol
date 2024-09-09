@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "var_struct.c"
+// #include "var_struct.c"
+#include "var_struct.h"
 // A
 //  3.01 , B 6
 //  4.3 , C −2

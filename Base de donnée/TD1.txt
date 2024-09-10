@@ -1,8 +1,8 @@
 Client = (N_Client COUNTER, Nom VARCHAR(50), adresse VARCHAR(50));
-Commande = (N_Commande COUNTER);
-article = (Référence_article COUNTER, libellé VARCHAR(50), quantité_stock BIGINT);
-passer = (#N_Client, #N_Commande, dateComm DATE);
-concerner = (#N_Commande, #Référence_article);
+Commande = (N_Commande COUNTER, DateComm DATE);
+article = (Référence_article COUNTER, libellé VARCHAR(50), Qté_Stock DOUBLE);
+passer = (#N_Client, #N_Commande); // parce que CIF
+concerner = (#N_Commande, #Référence_article, Qté_Commandée DOUBLE);
 
 ---------------------------------------------
 Dictionnaire de donnée
@@ -20,38 +20,39 @@ R Concerner
 
 ---------------------------------------------
 CREATE TABLE Client(
-   Id_Client COUNTER,
+   N_Client COUNTER,
    Nom VARCHAR(50),
    adresse VARCHAR(50),
-   PRIMARY KEY(Id_Client)
+   PRIMARY KEY(N_Client)
 );
 
 CREATE TABLE Commande(
-   Id_Commande COUNTER,
-   PRIMARY KEY(Id_Commande)
+   N_Commande COUNTER,
+   DateComm DATE,
+   PRIMARY KEY(N_Commande)
 );
 
 CREATE TABLE article(
-   Id_article COUNTER,
+   Référence_article COUNTER,
    libellé VARCHAR(50),
-   quantité_stock BIGINT,
-   PRIMARY KEY(Id_article)
+   Qté_Stock DOUBLE,
+   PRIMARY KEY(Référence_article)
 );
 
 CREATE TABLE passer(
-   Id_Client INT,
-   Id_Commande INT,
-   date_ DATE,
-   PRIMARY KEY(Id_Client, Id_Commande),
-   FOREIGN KEY(Id_Client) REFERENCES Client(Id_Client),
-   FOREIGN KEY(Id_Commande) REFERENCES Commande(Id_Commande)
+   N_Client INT,
+   N_Commande INT,
+   PRIMARY KEY(N_Client, N_Commande),
+   FOREIGN KEY(N_Client) REFERENCES Client(N_Client),
+   FOREIGN KEY(N_Commande) REFERENCES Commande(N_Commande)
 );
 
 CREATE TABLE concerner(
-   Id_Commande INT,
-   Id_article INT,
-   PRIMARY KEY(Id_Commande, Id_article),
-   FOREIGN KEY(Id_Commande) REFERENCES Commande(Id_Commande),
-   FOREIGN KEY(Id_article) REFERENCES article(Id_article)
+   N_Commande INT,
+   Référence_article INT,
+   Qté_Commandée DOUBLE,
+   PRIMARY KEY(N_Commande, Référence_article),
+   FOREIGN KEY(N_Commande) REFERENCES Commande(N_Commande),
+   FOREIGN KEY(Référence_article) REFERENCES article(Référence_article)
 );
 --------------------------------------------------------------

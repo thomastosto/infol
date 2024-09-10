@@ -1,0 +1,57 @@
+Client = (N_Client COUNTER, Nom VARCHAR(50), adresse VARCHAR(50));
+Commande = (N_Commande COUNTER);
+article = (Référence_article COUNTER, libellé VARCHAR(50), quantité_stock BIGINT);
+passer = (#N_Client, #N_Commande, dateComm DATE);
+concerner = (#N_Commande, #Référence_article);
+
+---------------------------------------------
+Dictionnaire de donnée
+
+E Client
+A nom
+A adresse
+E Commande
+A dateComm
+E Article
+A libellé
+A Quantité en stock
+R passer
+R Concerner
+
+---------------------------------------------
+CREATE TABLE Client(
+   Id_Client COUNTER,
+   Nom VARCHAR(50),
+   adresse VARCHAR(50),
+   PRIMARY KEY(Id_Client)
+);
+
+CREATE TABLE Commande(
+   Id_Commande COUNTER,
+   PRIMARY KEY(Id_Commande)
+);
+
+CREATE TABLE article(
+   Id_article COUNTER,
+   libellé VARCHAR(50),
+   quantité_stock BIGINT,
+   PRIMARY KEY(Id_article)
+);
+
+CREATE TABLE passer(
+   Id_Client INT,
+   Id_Commande INT,
+   date_ DATE,
+   PRIMARY KEY(Id_Client, Id_Commande),
+   FOREIGN KEY(Id_Client) REFERENCES Client(Id_Client),
+   FOREIGN KEY(Id_Commande) REFERENCES Commande(Id_Commande)
+);
+
+CREATE TABLE concerner(
+   Id_Commande INT,
+   Id_article INT,
+   PRIMARY KEY(Id_Commande, Id_article),
+   FOREIGN KEY(Id_Commande) REFERENCES Commande(Id_Commande),
+   FOREIGN KEY(Id_article) REFERENCES article(Id_article)
+);
+--------------------------------------------------------------

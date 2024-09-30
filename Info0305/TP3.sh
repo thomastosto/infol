@@ -1,11 +1,14 @@
-#echo "Bonjour"
-# Modification du prompt 
-#--------------------------
-# 1. Rechercher sur internet les différentes variables de configuration du prompt 
-# 2. Modifiez le prompt directement dans le terminal pour obtenir les formats : 
-# • date_courante :login_utilisateur@hostname # 
-# • login_utilisateur/répertoire_home $ 
-# • login_utilisateur :repertoire_courant /> 
-# 3. Après déconnexion et reconnexion que remarquez-vous ? 
-# 4. Créez un prompt selon le format de votre choix, et intégrez au fichier de gestion de connexion. 
-
+# Variables d’environnement 
+# 7. Modification du PATH 
+# • Créez à la racine de votre compte un répertoire ScriptBin 
+# • Modifiez la variable d’environnement PATH en ajoutant ScriptBin 
+# • Écrivez dans ScriptBin le script bonjour.sh ne faisant qu’un affichage 
+# • Depuis la racine de votre compte appelez le script ScriptBin 
+# • Modifier le PATH pour que le répertoire courant soit dans le PATH 
+# 8. Variable d’environnement utilisateur 
+# • Créez un répertoire MyData à la racine de votre compte 
+# • Créez la variable d’environnement DATA contenant le chemin absolu du répertoire 
+# MyData 
+# • Créez un fichier toto.txt dans le répertoire MyData 
+# • Depuis la racine de votre compte, et en utilisant la variable d’environnement DATA, 
+# utilisez la commande stat sur le fichier toto.txt

@@ -51,7 +51,7 @@ comme `.bashrc`.
      #
      export PATH=$PATH:~/ScriptBin
      echo 'export PATH=$PATH:~/ScriptBin' >> ~/.bashrc
-     source ~/.bashrc
+     source ~/.bashrc #permet de ######################pour recharger bashrc
      #
    - Écrivez dans ScriptBin le script bonjour.sh ne faisant qu’un affichage
      #
@@ -64,9 +64,9 @@ comme `.bashrc`.
      #
    - Modifier le PATH pour que le répertoire courant soit dans le PATH
      #
-     export PATH=.:$PATH
+     export PATH=.:$PATH#export permet de 
      echo 'export PATH=.:$PATH' >> ~/.bashrc
-     source ~/.bashrc
+     source ~/.bashrc ######################pour recharger bashrc
      #
 8. Variable d’environnement utilisateur
    - Créez un répertoire MyData à la racine de votre compte
